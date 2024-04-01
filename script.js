@@ -42,3 +42,21 @@ document.getElementById('delete-element').onclick = function () {
     document.getElementById('display').innerHTML = equation;
     console.log(equation);
 }
+
+
+// Function to calculate percentage
+function calculatePercentage() {
+    // Check if equation is not empty
+    if (equation !== "") {
+        // Split the equation into operands and operators
+        let parts = equation.split(/[\+\-\*\/]/);
+        // Get the last number entered
+        let lastNumber = parts[parts.length - 1];
+        // Calculate the percentage (divide by 100)
+        let percentage = parseFloat(lastNumber) / 100;
+        // Replace the last number with its percentage value
+        equation = equation.replace(lastNumber, percentage);
+        // Update the display
+        document.getElementById('display').innerHTML = equation;
+    }
+}
